@@ -1,0 +1,86 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                 MINI PAINT - QUICK REFERENCE CARD                          ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+TOOLS (SELECT ONE)
+├─ 1 .... Line       (click twice: start → end)
+├─ 2 .... Polyline   (click multiple times, Right-click or Enter to finish)
+├─ 3 .... Polygon    (click center, drag outward for size)
+├─ 4 .... Select     (click on a shape to select it)
+└─ 5 .... Transform  (select shape first, then apply T/R/S)
+
+TRANSFORMATIONS (ONLY IN TOOL 5)
+├─ T ........ Translate  (drag to move)
+├─ R ........ Rotate     (drag to spin around center)
+├─ S ........ Scale      (drag away = larger, toward = smaller)
+└─ S+Shift .. Uniform Scale (scales equally X and Y)
+
+POLYGON OPTIONS
+├─ [ ........ Fewer sides (minimum 3)
+├─ ] ........ More sides (maximum 12)
+└─ P ........ Enter sides (type number, press Enter)
+
+COLORS
+└─ C ........ Cycle: Red → Green → Blue → Yellow → Cyan → Magenta → White
+
+GENERAL
+├─ Delete/Backspace ... Delete selected shape
+├─ Esc ..................... Cancel current operation
+├─ Enter .................. Finish polyline (same as Right-click)
+└─ Right-Click ........... Finish polyline
+
+═════════════════════════════════════════════════════════════════════════════
+
+COMMON WORKFLOWS:
+
+▶ Draw a Shape:
+  1. Press tool number (1-3)
+  2. Click on canvas (and drag if needed)
+  3. Done! Shape appears
+
+▶ Move a Shape:
+  1. Press 5 (Transform)
+  2. Click the shape to select
+  3. Press T (Translate)
+  4. Drag the shape where you want
+  5. Release mouse
+
+▶ Rotate a Shape:
+  1. Press 5 (Transform)
+  2. Click the shape to select
+  3. Press R (Rotate)
+  4. Drag around the shape's center
+  5. Release mouse
+
+▶ Resize a Shape:
+  1. Press 5 (Transform)
+  2. Click the shape to select
+  3. Press S (Scale)
+  4. Drag away (bigger) or toward (smaller) the center
+  5. Release mouse
+
+▶ Change Color:
+  Press C repeatedly until you like the color, then draw a new shape
+
+═════════════════════════════════════════════════════════════════════════════
+
+HUD DISPLAY (top-left of screen shows):
+  STATUS     | TOOLS      | ACTIONS
+  -----------|------------|--------
+  Tool name  | 1 Line     | T Translate
+  Color      | 2 Polyline | R Rotate
+  Transform  | 3 Polygon  | S Scale
+  Selection  | 4 Select   | Del Delete
+  Sides      | 5 Transform| Esc Cancel
+
+═════════════════════════════════════════════════════════════════════════════
+
+TIPS:
+✓ Live preview shows shapes as you draw them
+✓ Adjust polygon sides BEFORE drawing the shape
+✓ Shapes highlight brighter when selected
+✓ Gray + marks the origin/center (0,0)
+✓ Far from shape center = better rotation control
+✓ Hold Shift+S for proportional scaling
+
+═════════════════════════════════════════════════════════════════════════════
