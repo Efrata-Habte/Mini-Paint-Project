@@ -6,7 +6,7 @@ A real-time interactive 2D vector drawing application built with Python, OpenGL,
 
 ```bash
 pip install -r requirements.txt
-pythonmain.py
+python main.py
 ```
 
 For keyboard shortcuts, see [QUICK_REFERENCE.txt](QUICK_REFERENCE.txt)
