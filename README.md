@@ -9,7 +9,6 @@ pip install -r requirements.txt
 python main.py
 ```
 
-For complete user guide, see [USER_GUIDE.md](USER_GUIDE.md)  
 For keyboard shortcuts, see [QUICK_REFERENCE.txt](QUICK_REFERENCE.txt)
 
 ## Features
