@@ -30,3 +30,6 @@ class Viewport:
 @property
     def world_width(self) -> float:
         return self.world_right - self.world_left
+@property
+    def world_height(self) -> float:
+        return self.world_top - self.world_bottom
