@@ -60,3 +60,7 @@ def world_to_ndc(self, point: Vec2) -> Vec2:
             ],
             dtype=np.float32,
         )
+  def projection_matrix_gl(self) -> np.ndarray:
+        from .math_utils import to_gl_mat4
+
+        return to_gl_mat4(self.projection_matrix())
