@@ -167,9 +167,10 @@ class Renderer:
 
     def draw_axes(self, viewport: Viewport) -> None:
         self._set_model_identity()
+        left, right, bottom, top = viewport.visible_bounds()
         axes = [
-            vec2_pair(viewport.world_left, 0.0, viewport.world_right, 0.0),
-            vec2_pair(0.0, viewport.world_bottom, 0.0, viewport.world_top),
+            vec2_pair(left, 0.0, right, 0.0),
+            vec2_pair(0.0, bottom, 0.0, top),
         ]
         for axis, color in zip(axes, [(0.35, 0.35, 0.4), (0.35, 0.35, 0.4)]):
             glUniform3f(self.u_color, *color)

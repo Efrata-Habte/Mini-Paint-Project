@@ -36,26 +36,50 @@ class Viewport:
     def world_height(self) -> float:
         return self.world_top - self.world_bottom
 
+    def visible_bounds(self) -> tuple[float, float, float, float]:
+        """Return world bounds adjusted so shapes keep uniform scale on any window aspect."""
+        world_aspect = self.world_width / self.world_height
+        window_aspect = self.window_width / self.window_height
+        center_x = (self.world_left + self.world_right) / 2
+        center_y = (self.world_bottom + self.world_top) / 2
+
+        if window_aspect > world_aspect:
+            half_height = self.world_height / 2
+            half_width = half_height * window_aspect
+        else:
+            half_width = self.world_width / 2
+            half_height = half_width / window_aspect
+
+        return (
+            center_x - half_width,
+            center_x + half_width,
+            center_y - half_height,
+            center_y + half_height,
+        )
+
     def screen_to_world(self, screen_x: float, screen_y: float) -> Vec2:
         """Convert GLFW screen coordinates (origin top-left) to world coordinates."""
+        left, right, bottom, top = self.visible_bounds()
+        visible_width = right - left
+        visible_height = top - bottom
         nx = screen_x / self.window_width
         ny = 1.0 - (screen_y / self.window_height)
-        world_x = self.world_left + nx * self.world_width
-        world_y = self.world_bottom + ny * self.world_height
+        world_x = left + nx * visible_width
+        world_y = bottom + ny * visible_height
         return vec2(world_x, world_y)
 
     def world_to_ndc(self, point: Vec2) -> Vec2:
         """Convert world coordinates to normalized device coordinates."""
-        x = 2.0 * (point[0] - self.world_left) / self.world_width - 1.0
-        y = 2.0 * (point[1] - self.world_bottom) / self.world_height - 1.0
+        left, right, bottom, top = self.visible_bounds()
+        visible_width = right - left
+        visible_height = top - bottom
+        x = 2.0 * (point[0] - left) / visible_width - 1.0
+        y = 2.0 * (point[1] - bottom) / visible_height - 1.0
         return vec2(x, y)
 
     def projection_matrix(self) -> np.ndarray:
-        """Orthographic projection matching the configured world bounds."""
-        left = self.world_left
-        right = self.world_right
-        bottom = self.world_bottom
-        top = self.world_top
+        """Orthographic projection matching the visible world bounds."""
+        left, right, bottom, top = self.visible_bounds()
         return np.array(
             [
                 [2.0 / (right - left), 0.0, 0.0, -(right + left) / (right - left)],
